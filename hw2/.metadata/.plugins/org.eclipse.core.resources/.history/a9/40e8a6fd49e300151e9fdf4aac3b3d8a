@@ -1,0 +1,80 @@
+
+import java.io.*;
+import java.util.*; 
+
+
+public class PhoneDirectory {
+
+	public void addEntry(String name, String number){
+		Properties prop = new Properties(); 
+		try{
+
+			OutputStream outStream = new FileOutputStream("src/main/resources/phone.properties", true); 
+
+			prop.setProperty(name, number);
+			prop.store(outStream, null);
+			outStream.close();
+		}
+		catch (IOException ex){
+			ex.printStackTrace();
+		}
+	}
+
+	
+	
+	
+	public void deleteEntry(String name){
+		Properties prop = new Properties(); 
+		try{
+
+			InputStream inStream = new FileInputStream("src/main/resources/phone.properties");
+			prop.load(inStream);
+			prop.remove(name);
+			inStream.close();
+			OutputStream outStream = new FileOutputStream("src/main/resources/phone.properties"); 
+			prop.store(outStream, null);
+			outStream.close();
+		}
+		catch (IOException ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	
+	String num;
+		
+	public String getNumber(String name) throws IOException{
+		
+		Properties prop = new Properties();
+		InputStream input = new FileInputStream("src/main/resources/phone.properties");
+		prop.load(input);
+		num = prop.getProperty(name);
+		input.close();
+		return num;
+		
+		
+	}
+	
+	public void changeEntry(String name, String number){
+		Properties prop = new Properties(); 
+		try{
+
+			InputStream inStream = new FileInputStream("src/main/resources/phone.properties");
+			prop.load(inStream);
+			prop.replace(name, number);
+			inStream.close();
+			OutputStream outStream = new FileOutputStream("src/main/resources/phone.properties"); 
+			prop.store(outStream, null);
+			outStream.close();
+		}
+		catch (IOException ex){
+			ex.printStackTrace();
+		}
+		
+	}
+
+	
+
+
+	
+}

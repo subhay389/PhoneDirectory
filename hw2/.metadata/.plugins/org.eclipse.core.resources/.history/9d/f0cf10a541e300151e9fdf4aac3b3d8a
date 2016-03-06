@@ -1,0 +1,21 @@
+
+public class DriverProgram {
+
+	public static void main(String[] args) {
+		PhoneDictionary object = new PhoneDictionary();
+		object.addEntry("Subhay", "202780");
+		object.addEntry("aaa", "123");
+		
+		String phonenumber = object.getNumber("Subhay");
+		
+		System.out.println(phonenumber);
+		
+		object.deleteEntry("aaa");
+		
+		object.changeEntry("Subhay", "123123");
+		
+		
+
+	}
+
+}

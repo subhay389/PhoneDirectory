@@ -1,0 +1,2 @@
+INDEX VERSION 1.127+/Users/subhay/Desktop/tracket materials/spring2016/large scale programming/phone_directory/hw2/.metadata/.plugins/org.eclipse.jdt.core
+894398446.index
